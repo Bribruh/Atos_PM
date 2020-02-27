@@ -16,6 +16,6 @@ app.set('view engine', 'ejs');
 //FOR MONGO
 
 
-mongoose.connect('mongodb://10.128.0.9:80/AtosDB');
+mongoose.connect('mongodb://' + argv.be_ip + ':80/my_database');
 app.listen(8080, argv.fe_ip);
 console.log("App listening on port 8080");

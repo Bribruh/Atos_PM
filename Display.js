@@ -16,6 +16,6 @@ app.set('view engine', 'ejs');
 //FOR MONGO
 
 
-mongoose.connect('mongodb://' + argv.be_ip + ':80/my_database');
+mongoose.connect('mongodb://127.0.0.1:80/?compressors=disabled&gssapiServiceName=mongodb');
 app.listen(8080, argv.fe_ip);
 console.log("App listening on port 8080");

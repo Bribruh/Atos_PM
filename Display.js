@@ -14,16 +14,6 @@ app.set('view engine', 'ejs');
 
 //FOR MONGO
 
-//Mongo: Setting up Mongo-Node Driver
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-
-// Connection URL
-const url = 'mongodb://10.128.0.9:80';
-
-// Database Name
-const dbName = 'AtosDB';
-
 
 mongoose.connect('mongodb://10.128.0.9:80/AtosDB');
 app.listen(8080, argv.fe_ip);

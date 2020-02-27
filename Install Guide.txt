@@ -1,0 +1,6 @@
+Node.js (.MSI File): https://nodejs.org/en/download/
+NPM Mongo: https://www.npmjs.com/package/mongodb
+NPM Express: https://expressjs.com/en/starter/installing.html 
+NPM EJS: https://www.npmjs.com/package/ejs
+
+Connection Error with Mongo: https://jimcute.wordpress.com/2015/06/02/unable-to-connect-to-server-127-0-0-127017-no-connection-could-be-made-because-the-target-machine-actively-refused-it-127-0-0-127017/

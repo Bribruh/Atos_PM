@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <style>
+            .prompt {
+                font-size: 16px;
+                color: brown;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .container {
+                width: 50%;
+            }
+            .left-pane {
+                width: 50%;
+                float: left;
+            }
+            .right-pane {
+                width: 50%;
+                float: right;
+            }
+            .submitInput {
+                clear: both;
+            }
+        </style>
+</head>
+<body class="container">
+
+<header>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h2></h2>
+   </div>
+</main>
+
+<footer>
+</footer>
+    <form method='GET' action="/getInput">
+        <div class="container">
+            <div class="prompt left-pane">
+                <span>Provide ID: </span> <br>
+                <span>Provide Name: </span> <br>
+                <span>Provide Price: </span> <br>
+                <span>Provide Author: </span> <br>
+                <span>Provide Category: </span> <br>
+            </div>
+            <div class="right-pane">
+                <input type="text" id="myID" name="myID" />
+                <input type="text" id="myName" name="myName" />
+                <input type="text" id="myPrice" name="myPrice" />
+                <input type="text" id="myAuthor" name="myAuthor" />
+                <input type="text" id="myCategory" name="myCategory" />
+
+            </div>
+        </div>
+        <div class="submitInput">
+            <input type="submit" value="getInput" />
+        </div>
+        </div>
+    </form>
+
+</body>
+</html>

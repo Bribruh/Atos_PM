@@ -25,5 +25,5 @@ const dbName = 'AtosDB';
 
 
 mongoose.connect('mongodb://10.128.0.9:80/AtosDB');
-app.listen(8080, 10.128.0.10);
+app.listen(8080);
 console.log("App listening on port 8080");

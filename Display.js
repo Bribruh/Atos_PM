@@ -24,6 +24,17 @@ mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 		Pnumber: Number
 	});
 
+const p1 = new Project({
+  _id: new mongoose.Types.ObjectId(),
+  name: 'P1',
+  Pnumber: 0001
+});
+p1.save(function (err) {
+    if (err) return handleError(err);
+    // thats it!
+  });
+
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 Project.find({}, function (err, docs) {

@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 //FOR MONGO
 
 
-mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
+mongoose.connect('mongodb://' + argv.be_ip + ':80/test');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {

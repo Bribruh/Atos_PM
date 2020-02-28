@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 //FOR MONGO
 
 
-mongoose.connect('mongodb://' + argv.be_ip + ':80/Project');
+mongoose.connect('mongodb://' + argv.be_ip + ':80/test');
 
 // define model =================
 	var Project = mongoose.model('Project', {
@@ -29,7 +29,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 Project.find({}, function (err, docs) {
 	if (err) return handleError(err);
 	
-	console.log('%s %s ', Project.name, docs.Pnumber);});
+	console.log('%s %s ', docs.name, docs.Pnumber);});
 
 
 app.listen(8080, argv.fe_ip);

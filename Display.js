@@ -17,11 +17,20 @@ app.set('view engine', 'ejs');
 
 
 mongoose.connect('mongodb://' + argv.be_ip + ':80/test');
+
+// define model =================
+	var Project = mongoose.model('Project', {
+		name : String,
+		Pnumber: int
+	});
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-});
+Project.find({}, function (err, docs) {
+	if (err) return handleError(err);
+	
+	console.log('%s %s is a %s.', Project.name, docs.Pnumber);});
+
 
 app.listen(8080, argv.fe_ip);
 console.log("App listening on port 8080");

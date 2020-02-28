@@ -24,13 +24,15 @@ mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 		Pnumber: Number
 	});
 
+var myArray = [];
+
 Project.
   find({}).
-  toArray(function (err, p) {
+  exec(function (err, p) {
     if (err) return handleError(err);
     for (var i = 0; i < docs.length; i++){
             //Stores every data point into myArray
-            myArray.push(docs[i]);
+            myArray.push(p[i]);
             console.log(myArray[i]);
         }
 		

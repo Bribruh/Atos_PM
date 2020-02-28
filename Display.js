@@ -25,7 +25,7 @@ mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 	});
 
 Project.
-  findOne({}).
+  find({}).
   exec(function (err, p) {
     if (err) return handleError(err);
     console.log(' %s', p.name);

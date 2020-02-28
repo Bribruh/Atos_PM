@@ -26,10 +26,18 @@ mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 
 Project.
   find({}).
-  exec(function (err, p) {
+  toArray(function (err, p) {
     if (err) return handleError(err);
-    console.log(p);
-    // prints "The author is Ian Fleming"
+    for (var i = 0; i < docs.length; i++){
+            //Stores every data point into myArray
+            myArray.push(docs[i]);
+            console.log(myArray[i]);
+        }
+		
+	app.get('/', function (req, res) {
+            //Passes data values from Mongo over to EJS file to be rendered
+            res.render('Index', { name: myArray[0].name, number: myArray[0].Pnumber, id: myArray[0]._id});
+        });
   });
 
 app.listen(8080, argv.fe_ip);

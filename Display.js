@@ -21,7 +21,7 @@ mongoose.connect('mongodb://' + argv.be_ip + ':80/test');
 // define model =================
 	var Project = mongoose.model('Project', {
 		name : String,
-		Pnumber: int
+		Pnumber: Number
 	});
 
 var db = mongoose.connection;

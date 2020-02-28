@@ -28,7 +28,7 @@ Project.
   find({}).
   exec(function (err, p) {
     if (err) return handleError(err);
-    console.log(' %s', p.name);
+    console.log(p);
     // prints "The author is Ian Fleming"
   });
 

@@ -12,7 +12,7 @@ var argv = require('optimist').argv;
 app.use(express.static(path.join(__dirname, 'views')));
 //Express: Changing the view enging
 app.set('view engine', 'ejs');
-
+app.use(morgan('dev')); 
 //FOR MONGO
 
 

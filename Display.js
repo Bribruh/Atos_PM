@@ -40,7 +40,10 @@ Project.
             //Passes data values from Mongo over to EJS file to be rendered
             res.render('Index', { name: myArray[0].name, number: myArray[0].Pnumber, id: myArray[0]._id});
         });
+	
+	app.listen(8080, argv.fe_ip);
+console.log("App listening on port 8080");
+	
   });
 
-app.listen(8080, argv.fe_ip);
-console.log("App listening on port 8080");
+

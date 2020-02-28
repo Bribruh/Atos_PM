@@ -30,7 +30,7 @@ Project.
   find({}).
   exec(function (err, p) {
     if (err) return handleError(err);
-    for (var i = 0; i < docs.length; i++){
+    for (var i = 0; i < p.length; i++){
             //Stores every data point into myArray
             myArray.push(p[i]);
             console.log(myArray[i]);

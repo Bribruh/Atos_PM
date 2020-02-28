@@ -16,7 +16,7 @@ app.use(morgan('dev'));
 //FOR MONGO
 
 
-mongoose.connect('mongodb://' + argv.be_ip + ':80/test');
+mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 
 // define model =================
 	var Project = mongoose.model('Project', {

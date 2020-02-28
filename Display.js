@@ -29,7 +29,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 Project.find({}, function (err, docs) {
 	if (err) return handleError(err);
 	
-	console.log('%s %s is a %s.', Project.name, docs.Pnumber);});
+	console.log('%s %s ', Project.name, docs.Pnumber);});
 
 
 app.listen(8080, argv.fe_ip);

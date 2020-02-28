@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 //FOR MONGO
 
 
-mongoose.connect('mongodb://' + argv.be_ip + ':80/test');
+mongoose.connect('mongodb://' + argv.be_ip + ':80/Project');
 
 // define model =================
 	var Project = mongoose.model('Project', {

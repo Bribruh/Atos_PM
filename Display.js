@@ -24,24 +24,13 @@ mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 		Pnumber: Number
 	});
 
-const p1 = new Project({
-  _id: new mongoose.Types.ObjectId(),
-  name: 'P1',
-  Pnumber: 0001
-});
-p1.save(function (err) {
+Project.
+  findOne({}).
+  exec(function (err, p) {
     if (err) return handleError(err);
-    // thats it!
+    console.log(' %s', p.name);
+    // prints "The author is Ian Fleming"
   });
-
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-Project.find({}, function (err, docs) {
-	if (err) return handleError(err);
-	
-	console.log('%s %s ', docs.name, docs.Pnumber);});
-
 
 app.listen(8080, argv.fe_ip);
 console.log("App listening on port 8080");

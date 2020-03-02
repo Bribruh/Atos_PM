@@ -19,12 +19,29 @@
 
         //Stringify: Converts JavaScript object into a JSON String
         var myObj = <%-JSON.stringify(myArray)%>;
+        var data =[];
         
         //Parse through JSON String by column name
-        var myId = myObj._id;
-        var myName = myObj.name;
-        var myNumber = myObj.Pnumber;
+        var myId = [];
+        var myName = [];
+        var myNumber = [];
   
+
+        //Parse through JSON String by column name
+        for (var i =0; i <myObj.length;i++){
+            myId.push(myObj[i]._id);
+            myName.push(myObj[i].name);
+            myNumber.push(myObj[i].Pnumber);
+        }
+
+
+
+
+
+        for (var i=0; i <myObj.length; i++){
+            data.push({id: myId[i], name: myName[i], pnumber: myNumber[i]});
+        }
+
 
     // specify the columns
       var columnDefs = [
@@ -35,7 +52,7 @@
 
     // specify the data
         var rowData = [
-            {id: myId, name: myName, pnumber: myNumber},
+            data
         ];
 
 

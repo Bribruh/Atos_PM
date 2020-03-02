@@ -1,27 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
+    <script src="https://unpkg.com/ag-grid-enterprise/dist/ag-grid-enterprise.min.noStyle.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
 </head>
-<body class="container">
+<body>
+    <h1>Express Mongo App</h1>
 
-<header>
-</header>
+    <div id="myGrid" style="height: 600px;width:800px;" class="ag-theme-balham"></div>
 
-<main>
-    <div class="jumbotron">
-        <h2></h2>
-   </div>
-</main>
+    <button onclick="getSelectedRows()">Get Selected Rows</button>
+    <button onclick="getSelectedRows()">Edit Value</button>
 
-<footer>
-</footer>
+    <div id="myButton" style="height: 600px;width:600px;" class="ag-theme-balham"></div>
 
-    <form id="myForm" method="post">
-        Project Name: <%= name %> <br>
-        number: <%= number %> <br>
-        ID:<%= id %> <br>
-    </form>
+    <script type="text/javascript" charset="utf-8">
 
+        //Stringify: Converts JavaScript object into a JSON String
+        var myObj = <%-JSON.stringify(myArray)%>;
+        
+        //Parse through JSON String by column name
+        var myId = myObj._id;
+        var myName = myObj.name;
+        var myNumber = myObj.Pnumber;
+  
+
+    // specify the columns
+      var columnDefs = [
+            { headerName: "Project ID", field: "id", sortable: true, filter: true },
+            { headerName: "Name", field: "name", sortable: true, filter: true },
+            { headerName: "Number", field: "pnumber", sortable: true, filter: true }
+        ];
+
+    // specify the data
+        var rowData = [
+            {id: myId, name: myName, pnumber: myNumber},
+        ];
+
+
+    // let the grid know which columns and what data to use
+        var gridOptions = {
+          columnDefs: columnDefs,
+          rowData: rowData
+        };
+
+      // lookup the container we want the Grid to use
+      var eGridDiv = document.querySelector('#myGrid');
+
+      // create the grid passing in the div to use together with the columns & data we want to use
+      new agGrid.Grid(eGridDiv, gridOptions);
+
+  </script>
 </body>
 </html>

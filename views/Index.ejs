@@ -25,8 +25,6 @@
         var myId = [];
         var myName = [];
         var myNumber = [];
-      
-      console.log(myObj.length)
 
         //Parse through JSON String by column name
         for (var i =0; i <myObj.length;i++){
@@ -36,15 +34,11 @@
         }
 
 
-         console.log(myId)
-        console.log(myName)
-        console.log(myNumber)
 
 
         for (var i=0; i <myObj.length; i++){
             data.push({id: myId[i], name: myName[i], pnumber: myNumber[i]});
         }
-console.log(data)
 
     // specify the columns
       var columnDefs = [

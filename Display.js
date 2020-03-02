@@ -27,8 +27,7 @@ mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 var myArray = [];
 
 Project.
-  find({}).
-  exec(function (err, p) {
+  find({}, function (err, p) {
     if (err) return handleError(err);
     for (var i = 0; i < p.length; i++){
             //Stores every data point into myArray

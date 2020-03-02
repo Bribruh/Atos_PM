@@ -35,13 +35,13 @@ Project.
             myArray.push(p[i]);
             console.log(myArray[i]);
         }
-	/*	
+
 	app.get('/', function (req, res) {
             //Passes data values from Mongo over to EJS file to be rendered
             res.render('Index', { name: myArray[0].name, number: myArray[0].Pnumber, id: myArray[0]._id});
         });
-	*/
-	app.get("/", (req, res) => { res.send("Hello World"); });
+	
+	
 	app.listen(8080);
 console.log("App listening on port 8080");
 	

@@ -22,50 +22,26 @@
         var data =[];
         
         //Parse through JSON String by column name
-        var myAPN = [];
-        var myName = [];
-        var myCreated_By = [];
-		var myCreated_At = [];
-		var myLastMod = [];
-		var myProject_Description = [];
+        var myPData = [];
+        var myPDscr = [];
 
         //Parse through JSON String by column name
         for (var i =0; i <myObj.length;i++){
-            myAPN.push(myObj[i].Project_Data:[
-      {
-        APN]});
-			myName.push(myObj[i].Project_Data:[
-      {
-        Name]});
-			myCreated_By.push(myObj[i].Project_Data:[
-      {
-        Created_By]});
-			myCreated_At.push(myObj[i].Project_Data:[
-      {
-        Created_At]});
-			myLastMod.push(myObj[i].Project_Data:[
-      {
-        Last_Modified_At]});
-			myProject_Description.push(myObj[i].Project_Description:[
-      {
-        Description]});
+            myPData.push(myObj[i].Project_Data);
+			myPDscr.push(myObj[i].Project_Data);
         }
 
 
 
 
         for (var i=0; i <myObj.length; i++){
-            data.push({apn: myAPN[i], name: myName[i], creAt: myCreated_At[i], creBy: myCreated_By[i], lastM: myLastMod[i], pDscr: myProject_Description[i]});
+            data.push({pdata: myPData[i], pdscr: myPDscr[i]});
         }
 
     // specify the columns
       var columnDefs = [
-            { headerName: "APN", field: "apn", sortable: true, filter: true },
-            { headerName: "Name", field: "name", sortable: true, filter: true },
-            { headerName: "Created", field: "creAt", sortable: true, filter: true },
-			{ headerName: "Created By", field: "creBy", sortable: true, filter: true},
-			{ headerName: "Modified", field: "lastM", sortable: true, filter: true },
-			{ headerName: "Description", field: "pDscr", sortable: true, filter: true }
+            { headerName: "Project Data", field: "pdata", sortable: true, filter: true },
+            { headerName: "Description", field: "pdscr", sortable: true, filter: true }
         ];
 
     // specify the data

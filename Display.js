@@ -19,9 +19,11 @@ app.use(morgan('dev'));
 mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 
 // define model =================
-	var Project = mongoose.model('Project', {
-		name : String,
-		Pnumber: Number
+	var Project = mongoose.model('Atos_P', {
+		"Project_Data": {
+      "type": [
+        "Mixed"
+      ]
 	});
 
 var myArray = [];

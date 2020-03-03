@@ -22,12 +22,16 @@
         var data =[];
         
         //Parse through JSON String by column name
-        var myPData = [];
+        var myName = [];
+		var myAPN = [];
+		var myCreBy = [];
         var myPDscr = [];
 
         //Parse through JSON String by column name
         for (var i =0; i <myObj.length;i++){
-            myPData.push(myObj[i]._id);
+            myName.push(myObj[i].Project_Data[0].Name);
+			myAPN.push(myObj[i].Project_Data[0].APN);
+			myCreBy.push(myObj[i].Project_Data[0].Created_By);
 			myPDscr.push(myObj[i].Project_Description[0].Description);
         }
 
@@ -35,12 +39,14 @@
 
 
         for (var i=0; i <myObj.length; i++){
-            data.push({pdata: myPData[i], pdscr: myPDscr[i]});
+            data.push({name: myName[i],apn: myAPN[i],creby: myCreBy[i], pdscr: myPDscr[i]});
         }
 
     // specify the columns
       var columnDefs = [
-            { headerName: "Project Data", field: "pdata", sortable: true, filter: true },
+            { headerName: "Project Name", field: "name", sortable: true, filter: true },
+			{ headerName: "APN", field: "apn", sortable: true, filter: true },
+			{ headerName: "Created By", field: "creby", sortable: true, filter: true },
             { headerName: "Description", field: "pdscr", sortable: true, filter: true }
         ];
 

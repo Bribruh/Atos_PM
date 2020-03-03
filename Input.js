@@ -29,7 +29,7 @@ app.get("/getInput", function (request, response) {
     //console.log(myAuthor);
     //console.log(myCategory);
 
-    if (myID != "") {
+    if (myName != "") {
         response.send("Responses Recorded");
 
     } else {

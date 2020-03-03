@@ -4,6 +4,8 @@
 var express = require('express');
 var path = require("path");
 var app = express();
+var morgan = require('morgan'); 
+var argv = require('optimist').argv;
 
 //Express: setting static path
 app.use(express.static(path.join(__dirname, 'views')));
@@ -18,11 +20,8 @@ app.get('/', function (req, res) {
 //Finds getInput function in EJS file
 app.get("/getInput", function (request, response) {
     //User Input from rendered EJS file
-    var myID = request.query.myID;
     var myName = request.query.myName;
-    var myPrice = request.query.myPrice;
-    var myAuthor = request.query.myAuthor;
-    var myCategory = request.query.myCategory;
+    var myNumber = request.query.myNumber;
 
     //console.log(myID);
     //console.log(myName);
@@ -36,35 +35,23 @@ app.get("/getInput", function (request, response) {
     } else {
         response.send("Please provide an input");
     }
+	
+	
 
-    //FOR MONGO
-    //Mongo: Setting up Mongo-Node Driver
-    const MongoClient = require('mongodb').MongoClient;
-    const assert = require('assert');
+    mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
+	var Project = mongoose.model('Project', {
+		name : String,
+		Pnumber: Number
+	});
 
-    // Connection URL
-    const url = 'mongodb://localhost:27017/BookstoreDb';
 
-    // Database Name
-    const dbName = 'BookstoreDb';
+	var insertP = new Project({name: myName, Pnumber: myNumber});
+	insertP.save(function (err) {
+  if (err) return handleError(err);
+  // saved!
+});
 
-    MongoClient.connect(url, function (err, client) {
-        assert.equal(null, err);
-        console.log("Connected successfully to server");
-
-        const db = client.db(dbName);
-        var collection = db.collection('Books');
-
-        //User created data object with all fields
-        var myObj = { _id: myID, Name: myName, Price: myPrice, Category: myCategory, Author: myAuthor };
-        //Inserts into MongoDB
-        collection.insertOne(myObj, function (err, res) {
-            if (err) throw err;
-            console.log("1 document inserted");
-        });
-
-        client.close();
-    });
+    
 });
 
 app.listen(8080);

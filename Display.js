@@ -34,7 +34,7 @@ Project.
 
 	app.get('/', function (req, res) {
             //Passes data values from Mongo over to EJS file to be rendered
-            res.render('Index', {myArray: myArray});
+            res.render('Index', {myArray});
         });
 	
 	

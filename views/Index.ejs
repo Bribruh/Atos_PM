@@ -31,12 +31,24 @@
 
         //Parse through JSON String by column name
         for (var i =0; i <myObj.length;i++){
-            myAPN.push(myObj[i].Project_Data.APN);
-			myName.push(myObj[i].Project_Data.Name);
-			myCreated_By.push(myObj[i].Project_Data.Created_By);
-			myCreated_At.push(myObj[i].Project_Data.Created_At);
-			myLastMod.push(myObj[i].Project_Data.Last_Modified_At);
-			myProject_Description.push(myObj[i].Project_Description.Description);
+            myAPN.push(myObj[i].Project_Data:[
+      {
+        APN]});
+			myName.push(myObj[i].Project_Data:[
+      {
+        Name]});
+			myCreated_By.push(myObj[i].Project_Data:[
+      {
+        Created_By]});
+			myCreated_At.push(myObj[i].Project_Data:[
+      {
+        Created_At]});
+			myLastMod.push(myObj[i].Project_Data:[
+      {
+        Last_Modified_At]});
+			myProject_Description.push(myObj[i].Project_Description:[
+      {
+        Description]});
         }
 
 

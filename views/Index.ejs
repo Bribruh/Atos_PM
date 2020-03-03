@@ -27,7 +27,7 @@
 
         //Parse through JSON String by column name
         for (var i =0; i <myObj.length;i++){
-            myPData.push(myObj[i].Project_Data.APN);
+            myPData.push(myObj[i].Project_Data[0]);
 			myPDscr.push(myObj[i].Project_Data);
         }
 

@@ -4,6 +4,7 @@
 var express = require('express');
 var path = require("path");
 var app = express();
+var mongoose = require('mongoose'); 
 var morgan = require('morgan'); 
 var argv = require('optimist').argv;
 

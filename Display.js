@@ -24,6 +24,7 @@ mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
       "type": [
         "Mixed"
       ]
+    }
 	});
 
 var myArray = [];

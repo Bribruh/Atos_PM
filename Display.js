@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 
 // define model =================
-	var Project = mongoose.model('AtosProjects', {}, 'AtosProjects');
+	var Project = mongoose.model('Atos_P', {}, 'Atos_P');
 
 var myArray = [];
 
@@ -34,7 +34,7 @@ Project.
 
 	app.get('/', function (req, res) {
             //Passes data values from Mongo over to EJS file to be rendered
-            res.render('Index', {myArray: myArray});
+            res.render('Index', {myArray});
         });
 	
 	

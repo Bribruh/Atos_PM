@@ -10,13 +10,15 @@
 
     <div id="myGrid" style="height: 600px;width:800px;" class="ag-theme-balham"></div>
 
-    <button onclick="getSelectedRows()">Get Selected Rows</button>
-    <button onclick="getSelectedRows()">Edit Value</button>
+    <button onclick="edit()">Edit Value</button>
 
     <div id="myButton" style="height: 600px;width:600px;" class="ag-theme-balham"></div>
 
     <script type="text/javascript" charset="utf-8">
-
+	function edit(){
+			var row = gridOptions.api.getSelectedRows();
+			console.log(row);
+		}
         //Stringify: Converts JavaScript object into a JSON String
         var myObj = <%-JSON.stringify(myArray)%>;
         var data =[];

@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 
 
 // define model =================
-	var Project = Connect.Project();
+	var Project = Connect.Project;
 
 var myArray = [];
 

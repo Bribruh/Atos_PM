@@ -1,0 +1,79 @@
+﻿Atos Project Number,"APN",true,true
+"Project Lifecycle","Lifecycle",true,true
+"CNA Reference number","CNA_Ref_Num",true,true
+"Project Name","Name",true,true
+"Corporate Initiative","Initiative",true,true
+"CNA Sub-Portfolio","CNA_Sub_Portfolio",true,true
+"CNA Priority","CNA_Priority",true,true
+"CNA Request Type","CNA_Request",true,true
+"CNA Country","CNA_Country",true,true
+"IDemand Legacy Number","IDemand_Num",true,true
+"Salesforce Case","Salesforce_Case",true,true
+"Salesforce Opportunity","Salesforce_Opportunity",true,true
+"Created By","Created_By",true,true
+"Created At","Created_At",true,true
+"Last Modified At","Last_Modified_At",true,true
+"Modified At","Modified_At",true,true
+"Description","Description",true,true
+"Business Justification","Business_Justification",true,true
+"CNA Requested Implementation Date","CNA_Implement_Date",true,true
+"CNA Requestor Name","Requestor_Name",true,true
+"CNA Sponsor","Sponsor",true,true
+"CNA Architect","Architect",true,true
+"CNA Project Manager","Project_Manager",true,true
+"CNA Project Contact","Project_Contact",true,true
+"Atos Demand Owner","Demand_Owner",true,true
+"Assigned to","Assigned_To",true,true
+"Program Name","Program_Name",true,true
+"Project WBS Code","Project_WBS_Code",true,true
+"Atos Solution Architect / Design Manager","Solution_Architect",true,true
+"SA assigned Date","SA_Assigned_Date",true,true
+"Atos Project Manager","Project_Manager",true,true
+"PM Assigned Date","PM_Assigned_Date",true,true
+"Complexity","Complexity",true,true
+"Solution Difficulty","Difficulty",true,true
+"Requirements RAG Status","Req_RAG_Status",true,true
+"Requirements Gathering Start Date","Req_Gathering_Start",true,true
+"Target Requirement Completion","Req_Completion_Date",true,true
+"Requirements Sent for approval","Req_Sent_Approval",true,true
+"Requirements sign-off date","Req_Sign_Date",true,true
+"Solution Design RAG Status","SD_RAG_Status",true,true
+"Target Solution Design Completion","SD_Completion_Date",true,true
+"Solution Design sign-off date","SD_Sign_Date",true,true
+"Proposal Version","Proposal_Version",true,true
+"Solution Architect Notes","SA_Notes",true,true
+"Peer Reviewe Required","Peer_Reviewed",true,true
+"Peer Reviewer","Peer_Reviewer",true,true
+"Peer Review Date","Peer_Reviewed_Date",true,true
+"QA Review Required","QA_Reviewed",true,true
+"QA Reviewer","QA_Reviewer",true,true
+"QA Review Date","QA_Reviewed_Date",true,true
+"Scope Change Required","Scope_Changed",true,true
+"Scope Change Date","Scope_Change_Date",true,true
+"Scope Change #","Scope_Change_Num",true,true
+"Business Days  in Requirements Gathering ","Days_Req_Gathering",true,true
+"Business Days  in Solution Design","Days_Solution_Design",true,true
+"Total Business days in Solutioning ","Total_Days_Solutioning",true,true
+"Atos Project Manager","ATOS_PM",true,true
+"Project Execution Start Date","Execution_Start_Date",true,true
+"Business Days in Execution","Execution_Days",true,true
+"Planning Target Project End Date","Planning_End_Date",true,true
+"Baselined Project End Date","Baseline_Project_End_Date",true,true
+"Baseline Date change Occurance","Baseline_Date_Change",true,true
+"Actual Project End Date","Project_End_Date",true,true
+"Project % Complete","Project_Percent",true,true
+"Project Overall RAG Status","Project_RAG_Status",true,true
+"Scope RAG","Scope_RAG",true,true
+"Schedule RAG","Schedule_RAG",true,true
+"Budget RAG","Budget_RAG",true,true
+"Original Baseline date","Baseline_Date",true,true
+"Status Date","Status_Date",true,true
+"Project Status Summary","Status_Summary",true,true
+"Executive Summary","Executive_Summary",true,true
+"Weekly Highlights","Weekly_Highlights",true,true
+"Upcoming activities","Upcoming",true,true
+"Atos PMO Folder URL","ATOS_PMO_URL",true,true
+"Collaboration Folder URL","Collab_URL",true,true
+"Atos Finance Folder URL","Finance_URL",true,true
+"Admin Notes","Notes",true,true
+"History","History",true,true

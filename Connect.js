@@ -3,9 +3,6 @@ var mongoose = require('mongoose');
 var morgan = require('morgan'); 
 var argv = require('optimist').argv;
 
-app.use(morgan('dev')); 
-//FOR MONGO
-
 
 mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 
@@ -25,9 +22,7 @@ Project.
         }
 
 	
-	
-	app.listen(8080);
-console.log("App listening on port 8080");
+
 	
   });
 

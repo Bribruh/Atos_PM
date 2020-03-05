@@ -1,37 +1,33 @@
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
 
-// Connection URL
-const url = 'mongodb://localhost:27017/BookstoreDb';
+var mongoose = require('mongoose'); 
+var morgan = require('morgan'); 
+var argv = require('optimist').argv;
 
-// Database Name
-const dbName = 'BookstoreDb';
+app.use(morgan('dev')); 
+//FOR MONGO
 
-// Use connect method to connect to the server
-MongoClient.connect(url, function (err, client) {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
 
-    const db = client.db(dbName);
-    var collection = db.collection('Books');
+mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 
-    var myArray = [];
 
-    //var myArray = collection.find().toArray(function (err, items) { });
-    collection.find({}).toArray(function (err, docs) {
-        assert.equal(err, null);
+// define model =================
+	var Project = mongoose.model('Atos_P', {}, 'Atos_P');
 
-        for (var i = 0; i < docs.length; i++) {
-            myArray.push(docs[i]);
+var myArray = [];
+
+Project.
+  find({}, function (err, p) {
+    if (err) return handleError(err);
+    for (var i = 0; i < p.length; i++){
+            //Stores every data point into myArray
+            myArray.push(p[i]);
             console.log(myArray[i]);
-            console.log("I've stored you!");
         }
 
-        //for (var i = 0; i < myArray.length; i++) {
-            //console.log("Name of " + i + ": " +myArray[i].Name);
-        //}
-
-    });
-    client.close();
-});
+	
+	
+	app.listen(8080);
+console.log("App listening on port 8080");
+	
+  });
 

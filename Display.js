@@ -7,6 +7,7 @@ var app = express();
 var mongoose = require('mongoose'); 
 var morgan = require('morgan'); 
 var argv = require('optimist').argv;
+var Connect = require("./Connect");
 
 //Express: setting static path
 app.use(express.static(path.join(__dirname, 'views')));
@@ -16,10 +17,9 @@ app.use(morgan('dev'));
 //FOR MONGO
 
 
-mongoose.connect('mongodb://' + argv.be_ip + ':80/AtosDB');
 
 // define model =================
-	var Project = mongoose.model('Atos_P', {}, 'Atos_P');
+	var Project = Connect.Project();
 
 var myArray = [];
 

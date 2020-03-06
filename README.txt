@@ -14,3 +14,4 @@ Install Guide:
 Root Folder:
   TestData.json: User-generated test data stored inside of remote MongoDB
   columData.csv: User-generated CSV document containing column data for Ag-Grid API
+  Views: All EJS files to be rendered by JS Script

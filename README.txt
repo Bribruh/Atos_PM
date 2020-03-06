@@ -1,6 +1,7 @@
 Install Guide: 
   Downloads:
-    - Node.js (.MSI File): https://nodejs.org/en/download/
+    - Node.js (MSI File): https://nodejs.org/en/download/
+    - MongoDB Community Server v4.2.3 (MSI File): https://www.mongodb.com/download-center/community
 
   NPM Packages: 
     - Morgan: npm install morgan --save

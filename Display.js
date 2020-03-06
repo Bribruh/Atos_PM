@@ -43,7 +43,8 @@ Project.find({}, function (err, p) {
             myProjects.push(p[i]);
             //console.log(myProjects[i]);
         }
-
+	
+	//Executes GET method to specified app route
 	app.get('/', function (req, res) {
             //Passes data values from Mongo over to EJS file to be rendered
             res.render('Index', {myArray: myProjects, myColumn: results});

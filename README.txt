@@ -4,7 +4,6 @@ Install Guide:
     - MongoDB Community Server v4.2.3 (MSI File): https://www.mongodb.com/download-center/community
 
   NPM Packages: 
-    - NPM: npm install 
     - Morgan: npm install morgan --save
     - Optimist: npm install optimist --save
     - Mongoose: npm install mongoose --save

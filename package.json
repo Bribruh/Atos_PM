@@ -2,11 +2,14 @@
   "name": "P$R",
   "dependencies": {
     "cookie-parser": "~1.4.4",
-    "ejs": "^1.0.0",
-    "express": "^4.6.1",
+    "csv-parser": "^2.3.2",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
     "http-errors": "~1.6.3",
     "mongodb": "^3.5.2",
-    "morgan": "~1.9.1",
+    "mongoose": "^5.9.3",
+    "morgan": "^1.9.1",
+    "optimist": "^0.6.1",
     "pug": "2.0.0-beta11"
   },
   "version": "1.0.0",

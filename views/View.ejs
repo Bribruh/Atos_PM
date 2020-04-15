@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ATOS</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="View.css">
+    </head>
+    
+    <div class="topnav">
+        <div class = "left" align="left">
+        <img src="https://atos.net/wp-content/uploads/2019/01/atos-logo-blue.png" alt= "ATOS Logo" style="max-width:100%; max-height:100%;">
+        </div>
+        
+        <div class="center">
+            <form method="GET" action="/displayDashboard" display="inline-block">
+                <input type="submit" value="Home" style= "height: 20px; width: 80px">
+            </form>
+        </div>
+
+        <div class = "right" align="right">
+            <a >Account</a>
+        </div>
+    </div>
+    
+    <body>
+        
+        <div class="spacing">
+			
+            View Project:
+			<span id="project" ></span>
+			Version:
+			<span id="v" ></span>
+        </div>
+        
+        <div class="card">   
+        
+            <div>                      
+		<form class="inl" method="GET" action="/cancel">
+				
+				<input type="hidden" id="APN" name="APN"  /> 
+
+                <div class="catagoryprimary"><b><u>Project Data</u></b></div>
+
+                <div class="inl">
+                    <label class="in" for="Lifecycle">Project Lifecycle</label>
+                    <select id="Lifecycle" name="Lifecycle" disabled>
+                        <option value="N/A"></option>
+                        <option value="PM005">PM005 </option>
+                        <option value="PM010">PM010 </option>
+                        <option value="PM020">PM020 </option>
+                        <option value="PM025">PM025 </option>
+                        <option value="PM040">PM040 </option>
+                        <option value="PM045">PM045 </option>
+                        <option value="PM050">PM050 </option>
+                        <option value="PM070">PM070 </option>
+                        <option value="PM100">PM100 </option>
+                        <option value="PM150">PM150 </option>
+                        <option value="PM200">PM200 </option>
+                        <option value="PM300">PM300 </option>
+                        <option value="PM600">PM600 </option>
+                        <option value="PM650">PM650 </option>
+                        <option value="PM700">PM700 </option>
+                        <option value="PM750">PM750 </option>
+                        <option value="PM800">PM800 </option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label class="in" for="CNA_Ref_Num">CNA Reference number</label>
+                    <input class="in" type="text" id="CNA_Ref_Num" name="CNA_Ref_Num" readonly>
+                </div>
+
+                <div class="inl">
+                    <label class="in" for="Name">Project Name</label>
+                    <input class="in" type="text" id="Name" name="Name"readonly>
+                </div>
+
+                <div class="inl">
+                    <label class="in" for="Initiative">Corporate Initiative</label>
+                    <input class="in" type="text" id="Initiative" name="Initiative" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="CNA_Sub_Portfolio">CNA Sub-Portfolio</label>
+                    <input class="in" type="text" id="CNA_Sub_Portfolio" name="CNA_Sub_Portfolio" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="CNA_Priority">CNA Priority</label>
+                    <input class="in" type="text" id="CNA_Priority" name="CNA_Priority" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="CNA_Request">CNA Request Type</label>
+                    <input class="in" type="text" id="CNA_Request" name="CNA_Request" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="CNA_Country">CNA Country</label>
+                    <input class="in" type="text" id="CNA_Country" name="CNA_Country" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="IDemand_Num">IDemand Legacy number</label>
+                    <input class="in" type="text" id="IDemand_Num" name="IDemand_Num" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="Salesforce_Case">Salesforce Case</label>
+                    <input class="in" type="text" id="Salesforce_Case" name="Salesforce_Case" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="Salesforce_Opportunity">Salesforce Opportunity</label>
+                    <input class="in" type="text" id="Salesforce_Opportunity" name="Salesforce_Opportunity" readonly>
+                </div>
+
+                <br></br>
+
+                <div class="catagory"><b><u>Project Description</u></b></div>
+
+                <div class="inl">
+                    <label class="in" for="CNA_Implement_Date">CNA Requested Implementation Date</label>
+                    <input type="date" style="width: 125px" id="CNA_Implement_Date" name="CNA_Implement_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+                </div>
+
+                <br></br>
+
+                <div class="inl2">
+                    <label class="in" for="Description">Description</label>
+                    <textarea style="width: 500px; height: 80px" type="text" id="Description" name="Description" readonly></textarea>
+                </div>
+                <div class="inl2">
+                    <label class="in" for="Business_Justification">Business Justification</label>
+                    <textarea style="width: 500px; height: 80px" type="text" id="Business_Justification" name="Business_Justification" readonly></textarea>
+                </div>
+
+                <br></br>
+
+                <div class="catagory"><b><u>CNA Contact Information</u></b></div>
+
+                <div class="inl">
+                    <label class="in" for="Requestor_Name">CNA Requestor Name</label>
+                    <input class="in" type="text" id="Requestor_Name" name="Requestor_Name" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="Sponsor">CNA Sponsor</label>
+                    <input class="in" type="text" id="Sponsor" name="Sponsor" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="Architect">CNA Architect</label>
+                    <input class="in" type="text" id="Architect" name="Architect" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="Project_Manager">CNA Project Manager</label>
+                    <input class="in" type="text" id="CNA_Project_Manager" name="CNA_Project_Manager" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="Project_Contact">CNA Project Contact 1</label>
+                    <input class="in" type="text" id="Project_Contact" name="Project_Contact" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="Project_Contact2">CNA Project Contact 2</label>
+                    <input class="in" type="text" id="Project_Contact2" name="Project_Contact2" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="Project_Contact3">CNA Project Contact 3</label>
+                    <input class="in" type="text" id="Project_Contact3" name="Project_Contact3" readonly>
+                </div>
+                <div class="inl">
+                    <label class="in" for="Project_Contact4">CNA Project Contact 4</label>
+                    <input class="in" type="text" id="Project_Contact4" name="Project_Contact4" readonly>
+                </div>
+
+                <br></br>
+                <br></br>
+
+
+                <div class="catagory"><b><u>Atos Assignments</u></b></div>
+
+                <div class="inl">
+                    <label for="Demand_Owner">Atos Demand Owner</label>
+                    <input type="text" id="Demand_Owner" name="Demand_Owner" readonly>
+                </div>
+                <div class="inl">
+                    <label for="Assigned_To">Assigned to</label>
+                    <input type="text" id="Assigned_To" name="Assigned_To" readonly>
+                </div>
+
+                <div class="inl">
+                    <label for="Program_Name">Program Name</label>
+                    <select id="Program_Name" name="Program_Name" disabled>
+                        <option value="N/A"></option>
+                        <option value="Business Request">Business Request</option>
+                        <option value="ATOS">ATOS</option>
+                        <option value="BAU">BAU</option>
+                        <option value="ATOS Transformation">ATOS Transformation</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="Project_WBS_Code">Project WBS Code</label>
+                    <input type="text" id="Project_WBS_Code" name="Project_WBS_Code" readonly>
+                </div>
+                <div class="inl">
+                    <label for="Solution_Architect">Atos Solution Architect / Design Manager</label>
+                    <input type="text" id="Solution_Architect" name="Solution_Architect" readonly>
+                </div>
+                <div class="inl">
+                    <label for="SA_Assigned_Date">SA assigned Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="SA_Assigned_Date" name="SA_Assigned_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="Project_Manager">Atos Project Manager</label>
+                    <input type="text" id="Atos_Project_Manager" name="Atos_Project_Manager" readonly>
+                </div>
+                <div class="inl">
+                    <label for="PM_Assigned_Date">PM Assigned Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="PM_Assigned_Date" name="PM_Assigned_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+
+                <br></br>
+                <br></br>
+
+                <div class="catagory"><b><u>Solution & Design Information</u></b></div>
+
+                <div class="inl">
+                    <label for="Atos_Solution_Architect">Atos Solution Architect / Design Manager</label>
+                    <input type="text" id="Atos_Solution_Architect" name="Atos_Solution_ArchitectComplexity" readonly>
+                </div>
+
+                <div class="inl">
+                    <label for="Complexity">Complexity</label>
+                    <select id="Complexity" name="Complexity" disabled>
+                        <option value="N/A"></option>
+                        <option value="Simple">Simple</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Complex">Complex</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="Difficulty">Solution Difficulty</label>
+                    <select id="Difficulty" name="Difficulty" disabled>
+                        <option value="N/A"></option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="X-Large">X-Large</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="Req_RAG_Status">Requirements RAG Status</label>
+                    <select id="Req_RAG_Status" name="Req_RAG_Status" disabled>
+                        <option value="N/A"></option>
+                        <option value="Red">Red</option>
+                        <option value="Amber">Amber</option>
+                        <option value="Green">Green</option>
+                    </select>
+                </div>
+                <div class="inl">
+                    <label for="Req_Gathering_Start">Requirements Gathering Start Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="Req_Gathering_Start" name="Req_Gathering_Start" value="" min="2010-01-01" max="2030-12-31" readonly> 
+
+                </div>
+                <div class="inl">
+                    <label for="Req_Completion_Date">Target Requirement Completion</label>
+                    <input type="date" style="width: 125px; display: block;" id="Req_Completion_Date" name="Req_Completion_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="Req_Sent_Approval">Requirements Sent for approval</label>
+                    <input type="date" style="width: 125px; display: block;" id="Req_Sent_Approval" name="Req_Sent_Approval" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="Req_Sent_Approval">Requirements sign-off date</label>
+                    <input type="date" style="width: 125px; display: block;" id="Req_Sign_Date" name="Req_Sign_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="SD_RAG_Status">Solution Design RAG Status</label>
+                    <select id="SD_RAG_Status" name="SD_RAG_Status" disabled>
+                        <option value="N/A"></option>
+                        <option value="Red">Red</option>
+                        <option value="Amber">Amber</option>
+                        <option value="Green">Green</option>
+                    </select>
+                </div>
+                <div class="inl">
+                    <label for="SD_RAG_Status">Target Solution Design Completion</label>
+                    <input type="date" style="width: 125px; display: block;" id="SD_Completion_Date" name="SD_Completion_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="SD_RAG_Status">Solution Design Sent for approval</label>
+                    <input type="date" style="width: 125px; display: block;" id="SD_Sent_Date" name="SD_Sent_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="SD_Sign_Date">Solution Design sign-off date</label>
+                    <input type="date" style="width: 125px; display: block;" id="SD_Sign_Date" name="SD_Sign_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="Proposal_Version">Proposal Version</label>
+                    <input type="text" id="Proposal_Version" name="Proposal_Version" readonly>
+                </div>
+
+                <div class="inl">
+                    <label for="Peer_Reviewed">Peer Review Required</label>
+                    <select id="Peer_Reviewed" name="Peer_Reviewed" disabled>
+                        <option value="N/A"></option>
+                        <option value="Completed">Completed</option>
+                        <option value="Incomplete">Incomplete</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="Peer_Reviewer">Peer Reviewer</label>
+                    <input type="text" id="Peer_Reviewer" name="Peer_Reviewer" readonly>
+
+                </div>
+
+                <div class="inl">
+                    <label for="fname">Peer Review Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="Peer_Reviewed_Date" name="Peer_Reviewed_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+
+                <div class="inl">
+                    <label for="QA_Reviewed">QA Review Required</label>
+                    <select id="QA_Reviewed" name="QA_Reviewed" disabled>
+                        <option value="N/A"></option>
+                        <option value="Completed">Completed</option>
+                        <option value="Incomplete">Incomplete</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="QA_Reviewer">QA Reviewer</label>
+                    <input type="text" id="QA_Reviewer" name="QA_Reviewer" readonly>
+                </div>
+                <div class="inl">
+                    <label for="QA_Reviewed_Date">QA Review Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="QA_Reviewed_Date" name="QA_Reviewed_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+
+                <div class="inl">
+                    <label for="Scope_Changed">Scope Change Required</label>
+                    <select id="Scope_Changed" name="Scope_Changed" disabled>
+                        <option value="N/A"></option>
+                        <option value="Completed">Completed</option>
+                        <option value="Incomplete">Incomplete</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="Scope_Change_Date">Scope Change Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="Scope_Change_Date" name="Scope_Change_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="Scope_Change_Num">Scope Change #</label>
+                    <input type="text" id="Scope_Change_Num" name="Scope_Change_Num" readonly>
+                </div>
+
+                <br></br>
+
+                <div class="inl2">
+                    <label for="SA_Notes">Solution Architect Notes</label>
+                    <textarea style="width:500px; height: 80px" type="text" id="SA_Notes" name="SA_Notes" readonly></textarea>
+                </div>
+
+                <br></br>
+
+                <div class="catagory"><b><u>Project Management & Execution</u></b></div>
+
+                <div class="inl">
+                    <label for="ATOS_PM">Atos Project Manager</label>
+                    <input type="text" id="ATOS_PM" name="ATOS_PM" readonly>
+                </div>
+                <div class="inl">
+                    <label for="Execution_Start_Date">Project Execution Start Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="Execution_Start_Date" name="Execution_Start_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+
+                <div class="inl">
+                    <label for="Planning_End_Date">Planning Target Project End Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="Planning_End_Date" name="Planning_End_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="Baseline_Project_End_Date">Baselined Project End Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="Baseline_Project_End_Date" name="Baseline_Project_End_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="Baseline_Date_Change">Baseline Date Change Occurance</label>
+                    <input type="text" id="Baseline_Date_Change" name="Baseline_Date_Change" readonly>
+                </div>
+                <div class="inl">
+                    <label for="Project_End_Date">Actual Project End Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="Project_End_Date" name="Project_End_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+                <div class="inl">
+                    <label for="Project_Percent">Project % Complete</label>
+                    <input type="text" id="Project_Percent" name="Project_Percent" readonly>
+                </div>
+
+                <div class="inl">
+                    <label for="Project_RAG_Status">Project Overall RAG Status</label>
+                    <select id="Project_RAG_Status" name="Project_RAG_Status" disabled>
+                        <option value="N/A"></option>
+                        <option value="Red">Red</option>
+                        <option value="Amber">Amber</option>
+                        <option value="Green">Green</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="Scope_RAG">Scope RAG</label>
+                    <select id="Scope_RAG" name="Scope_RAG" disabled>
+                        <option value="N/A"></option>
+                        <option value="Red">Red</option>
+                        <option value="Amber">Amber</option>
+                        <option value="Green">Green</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="Schedule_RAG">Schedule RAG</label>
+                    <select id="Schedule_RAG" name="Schedule_RAG" disabled>
+                        <option value="N/A"></option>
+                        <option value="Red">Red</option>
+                        <option value="Amber">Amber</option>
+                        <option value="Green">Green</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="Budget_RAG">Budget RAG</label>
+                    <select id="Budget_RAG" name="Budget_RAG" disabled>
+                        <option value="N/A"></option>
+                        <option value="Red">Red</option>
+                        <option value="Amber">Amber</option>
+                        <option value="Green">Green</option>
+                    </select>
+                </div>
+
+                <div class="inl">
+                    <label for="Baseline_Date5">Status Date</label>
+                    <input type="date" style="width: 125px; display: block;" id="Status_Date" name="Status_Date" value="" min="2010-01-01" max="2030-12-31" readonly>
+
+                </div>
+
+                <br></br>
+
+                <div class="inl2">
+                    <label for="Status_Summary">Project Status Summary</label>
+                    <textarea style="width:500px; height: 80px" type="text" id="Status_Summary" name="Status_Summary" readonly></textarea>
+                </div>
+                <div class="inl2">
+                    <label for="Executive_Summary">Executive Summary</label>
+                    <textarea style="width:500px; height: 80px" t type="text" id="Executive_Summary" name="Executive_Summary" readonly></textarea>
+                </div>
+                <div class="inl2">
+                    <label for="Weekly_Highlights">Weekly Highlights</label>
+                    <textarea style="width:500px; height: 80px" type="text" id="Weekly_Highlights" name="Weekly_Highlights" readonly></textarea>
+                </div>
+                <div class="inl2">
+                    <label for="Upcoming">Upcoming activities</label>
+                    <textarea style="width:500px; height: 80px" type="text" id="Upcoming" name="Upcoming" readonly></textarea>
+                </div>
+
+                <br></br>
+
+
+                <div class="catagory"><b><u>Documentation</u></b></div>
+
+                <div class="inl">
+                    <label for="ATOS_PMO_URL">Atos PMO Folder URL</label>
+                    <input type="text" id="ATOS_PMO_URL" name="ATOS_PMO_URL" readonly>
+                </div>
+                <div class="inl">
+                    <label for="Collab_URL">Collaboration Folder URL</label>
+                    <input type="text" id="Collab_URL" name="Collab_URL" readonly>
+                </div>
+                <div class="inl">
+                    <label for="Finance_URL">Atos Finance Folder URL</label>
+                    <input type="text" id="Finance_URL" name="Finance_URL" readonly>
+                </div>
+
+                <br></br>
+
+                <div class="inl2">
+                    <label for="Notes">Admin Notes</label>
+                    <textarea style="width:500px; height: 80px" type="text" id="Notes" name="Notes" readonly></textarea>
+                </div>
+
+                <br>
+
+                <div class="submit">
+                    <div></div>
+                    <input type="submit" value="Done">
+                    <div></div>
+                </div>
+				
+				<label for="V">Version</label>
+                    <span id="V" name="V"></span>
+				
+
+            </form>
+			
+			
+			
+            </div> 
+        </div> 
+		
+                    
+                
+		
+		<script>
+
+        //Stringify: Converts JavaScript object into a JSON String
+        var myObj = <%- JSON.stringify(p) %>;
+		document.querySelector('#project').innerHTML = myObj.Project_Data[0].APN;
+		document.querySelector('#APN').value = myObj.Project_Data[0].APN;
+		document.querySelector('#v').innerHTML = myObj.V;
+		
+		document.getElementById('Lifecycle').value = myObj.Project_Data[0].Lifecycle;
+		document.getElementById('CNA_Ref_Num').value = myObj.Project_Data[0].CNA_Ref_Num;
+		document.getElementById('Name').value = myObj.Project_Data[0].Name;
+		document.getElementById('Initiative').value = myObj.Project_Data[0].Initiative;
+		document.getElementById('CNA_Sub_Portfolio').value = myObj.Project_Data[0].CNA_Sub_Portfolio;
+		document.getElementById('CNA_Priority').value = myObj.Project_Data[0].CNA_Priority;
+		document.getElementById('CNA_Request').value = myObj.Project_Data[0].CNA_Request;
+		document.getElementById('CNA_Country').value = myObj.Project_Data[0].CNA_Country;
+		document.getElementById('IDemand_Num').value = myObj.Project_Data[0].IDemand_Num;
+		document.getElementById('Salesforce_Case').value = myObj.Project_Data[0].Salesforce_Case;
+		document.getElementById('Salesforce_Opportunity').value = myObj.Project_Data[0].Salesforce_Opportunity;
+		
+		document.getElementById('Description').value = myObj.Project_Description[0].Description;
+		document.getElementById('Business_Justification').value = myObj.Project_Description[0].Business_Justification;
+		document.getElementById('CNA_Implement_Date').value = myObj.Project_Description[0].CNA_Implement_Date;
+		
+		document.getElementById('Requestor_Name').value = myObj.CNA_Info[0].Requestor_Name;
+		document.getElementById('Sponsor').value = myObj.CNA_Info[0].Sponsor;
+		document.getElementById('Architect').value = myObj.CNA_Info[0].Architect;
+		document.getElementById('CNA_Project_Manager').value = myObj.CNA_Info[0].Project_Manager;
+		document.getElementById('Project_Contact').value = myObj.CNA_Info[0].Project_Contact;
+		
+		document.getElementById('Demand_Owner').value = myObj.ATOS_Assignment[0].Demand_Owner;
+		document.getElementById('Assigned_To').value = myObj.ATOS_Assignment[0].Assigned_To;
+		document.getElementById('Program_Name').value = myObj.ATOS_Assignment[0].Program_Name;
+		document.getElementById('Project_WBS_Code').value = myObj.ATOS_Assignment[0].Project_WBS_Code;
+		document.getElementById('Solution_Architect').value = myObj.ATOS_Assignment[0].Solution_Architect;
+		document.getElementById('SA_Assigned_Date').value = myObj.ATOS_Assignment[0].SA_Assigned_Date;
+		document.getElementById('Atos_Project_Manager').value = myObj.ATOS_Assignment[0].Project_Manager;
+		document.getElementById('PM_Assigned_Date').value = myObj.ATOS_Assignment[0].PM_Assigned_Date;
+		
+		document.getElementById('Solution_Architect').value = myObj.Solution_Design_Info[0].Solution_Architect;
+		document.getElementById('Complexity').value = myObj.Solution_Design_Info[0].Complexity;
+		document.getElementById('Difficulty').value = myObj.Solution_Design_Info[0].Difficulty;
+		document.getElementById('Req_RAG_Status').value = myObj.Solution_Design_Info[0].Req_RAG_Status;
+		document.getElementById('Req_Gathering_Start').value = myObj.Solution_Design_Info[0].Req_Gathering_Start;
+		document.getElementById('Req_Completion_Date').value = myObj.Solution_Design_Info[0].Req_Completion_Date;
+		document.getElementById('Req_Sent_Approval').value = myObj.Solution_Design_Info[0].Req_Sent_Approval;
+		document.getElementById('Req_Sign_Date').value = myObj.Solution_Design_Info[0].Req_Sign_Date;
+		document.getElementById('SD_RAG_Status').value = myObj.Solution_Design_Info[0].SD_RAG_Status;
+		document.getElementById('SD_Completion_Date').value = myObj.Solution_Design_Info[0].SD_Completion_Date;
+		document.getElementById('SD_Sign_Date').value = myObj.Solution_Design_Info[0].SD_Sign_Date;
+		document.getElementById('Proposal_Version').value = myObj.Solution_Design_Info[0].Proposal_Version;
+		document.getElementById('SA_Notes').value = myObj.Solution_Design_Info[0].SA_Notes;
+		document.getElementById('Peer_Reviewed').value = myObj.Solution_Design_Info[0].Peer_Reviewed;
+		document.getElementById('Peer_Reviewer').value = myObj.Solution_Design_Info[0].Peer_Reviewer;
+		document.getElementById('Peer_Reviewed_Date').value = myObj.Solution_Design_Info[0].Peer_Reviewed_Date;
+		document.getElementById('QA_Reviewed').value = myObj.Solution_Design_Info[0].QA_Reviewed;
+		document.getElementById('QA_Reviewer').value = myObj.Solution_Design_Info[0].QA_Reviewer;
+		document.getElementById('QA_Reviewed_Date').value = myObj.Solution_Design_Info[0].QA_Reviewed_Date;
+		document.getElementById('Scope_Changed').value = myObj.Solution_Design_Info[0].Scope_Changed;
+		document.getElementById('Scope_Change_Date').value = myObj.Solution_Design_Info[0].Scope_Change_Date;
+		document.getElementById('Scope_Change_Num').value = myObj.Solution_Design_Info[0].Scope_Change_Num;
+		
+		document.getElementById('ATOS_PM').value = myObj.PM_Execution_Info[0].ATOS_PM;
+		document.getElementById('Execution_Start_Date').value = myObj.PM_Execution_Info[0].Execution_Start_Date;
+		document.getElementById('Planning_End_Date').value = myObj.PM_Execution_Info[0].Planning_End_Date;
+		document.getElementById('Baseline_Project_End_Date').value = myObj.PM_Execution_Info[0].Baseline_Project_End_Date;
+		document.getElementById('Baseline_Date_Change').value = myObj.PM_Execution_Info[0].Baseline_Date_Change;
+		document.getElementById('Project_End_Date').value = myObj.PM_Execution_Info[0].Project_End_Date;
+		document.getElementById('Project_Percent').value = myObj.PM_Execution_Info[0].Project_Percent;
+		document.getElementById('Project_RAG_Status').value = myObj.PM_Execution_Info[0].Project_RAG_Status;
+		document.getElementById('Scope_RAG').value = myObj.PM_Execution_Info[0].Scope_RAG;
+		document.getElementById('Schedule_RAG').value = myObj.PM_Execution_Info[0].Schedule_RAG;
+		document.getElementById('Budget_RAG').value = myObj.PM_Execution_Info[0].Budget_RAG;
+		document.getElementById('Baseline_Date').value = myObj.PM_Execution_Info[0].Baseline_Date;
+		document.getElementById('Status_Date').value = myObj.PM_Execution_Info[0].Status_Date;
+		document.getElementById('Status_Summary').value = myObj.PM_Execution_Info[0].Status_Summary;
+		document.getElementById('Executive_Summary').value = myObj.PM_Execution_Info[0].Executive_Summary;
+		document.getElementById('Weekly_Highlights').value = myObj.PM_Execution_Info[0].Weekly_Highlights;
+		document.getElementById('Upcoming').value = myObj.PM_Execution_Info[0].Upcoming;
+		
+		document.getElementById('ATOS_PMO_URL').value = myObj.Documentation[0].ATOS_PMO_URL;
+		document.getElementById('Collab_URL').value = myObj.Documentation[0].Collab_URL;
+		document.getElementById('Finance_URL').value = myObj.Documentation[0].Finance_URL;
+		document.getElementById('Notes').value = myObj.Documentation[0].Notes;
+		document.getElementById('History').value = myObj.Documentation[0].History;
+		
+		document.querySelector('#V').innerHTML = myObj.__v;
+  </script>	
+		
+    </body>   
+</html>
+

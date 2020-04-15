@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/ag-grid-enterprise/dist/ag-grid-enterprise.min.noStyle.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="AccountDisplay.css">
+</head>
+
+<div class="topnav">
+    <div class = "left" align="left">
+        <img src="https://atos.net/wp-content/uploads/2019/01/atos-logo-blue.png" alt= "ATOS Logo" style="max-width:100%; max-height:100%;">
+    </div>
+    
+    <div class="center">
+        <form method="GET" action="/displayDashboard" display="inline-block">
+            <input type="submit" value="Home">
+        </form>
+    </div>
+
+    <div class = "right" align="right">
+        <a >Account</a>
+    </div>
+</div>
+
+<body>
+    <div class="spacing">
+        <p>Portfolio and Resource Manager</p>
+    </div>
+    <div class="card">   
+            <div id="displayGrid" style="height: 80%; width: 100%" class="ag-theme-alpine"></div>
+
+            <form method="GET" action="/editAccount" display="inline">	
+                <input type="hidden" id="selection2" name="selection2"  />   
+                <input type="submit" value ="Edit Value" style= "height: 20px; width: 80px">
+            </form>
+
+
+            <div style="display: block">
+                Selection:
+                <span id="selection" ></span>
+            </div>
+
+    </div>
+	
+    <script type="text/javascript" charset="utf-8">
+        //Stringify: Converts JavaScript object into a JSON String
+        var myObj = <%-JSON.stringify(myusers)%>;
+
+        //Global array to store row-data information
+        var data =[];
+
+        //Stores each JSON object attribute instance into row Data
+        for (var i=0; i <myObj.length; i++){
+            data.push({username: myObj[i].username, firstName:myObj[i].firstName, lastName:myObj[i].lastName, email:myObj[i].email, role:myObj[i].role, company:myObj[i].company, date:myObj[i].date,});
+        }
+
+        //Uses imported CSV as column definitions
+        var columnDefs = [
+            {headerName:"Username",field: "username"},
+            {headerName:"First Name",field: "firstName"},
+            {headerName:"Last Name",field: "lastName"},
+            {headerName:"Email",field: "email"},
+            {headerName:"Role",field: "role"},
+            {headerName:"Company",field: "company"},
+            {headerName:"Date",field: "date"},
+        ];
+        // Uses globally stored array as row data
+        var rowData = data;
+
+        //Configuration for main display grid
+        var displayGridOptions = {
+            columnDefs: columnDefs,
+            rowData: rowData,
+            rowSelection: 'single',
+			onSelectionChanged: onSelectionChanged,
+
+            getRowNodeId: function(data){return data.username},
+            floatingFilter: true,
+            rowDragManaged: true,
+            animateRows: true,
+
+            defaultColDef: {
+                enableRowGroup: true,
+                enableValue: true,
+            }
+        };
+
+        // Define actions on selection change
+        function onSelectionChanged() {
+			var selectedRows = displayGridOptions.api.getSelectedRows();
+			document.querySelector('#selection2').value = selectedRows.length === 1 ? selectedRows[0].username : '';
+			document.querySelector('#selection').innerHTML = selectedRows.length === 1 ? selectedRows[0].username : '';
+		}
+        
+        //Setup the grid after page has finished listening
+        document.addEventListener('DOMContentLoaded', function() {
+            var eGridDiv = document.querySelector('#displayGrid');
+            new agGrid.Grid(eGridDiv, displayGridOptions);
+        });
+    </script>
+</body>
+</html>

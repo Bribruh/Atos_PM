@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ATOS</title>
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+
+<div class="topnav">
+
+    <div class="left" align="left">
+        <img src="https://atos.net/wp-content/uploads/2019/01/atos-logo-blue.png" alt= "ATOS Logo" style="max-width:100%; max-height:100%;">
+    </div>
+
+    
+    <div class="center">
+        <form method="GET" action="/displayDashboard" display="inline-block">
+            <input type="submit" value="Home" style= "height: 20px; width: 80px">
+        </form>
+    </div>
+
+    <div class="right" align="right">
+        <a>Account</a>
+    </div>
+</div>
+    
+
+<body>
+
+    <div class="spacing">
+        <p>Dashboard</p>
+    </div>
+
+    <div class="card">
+        <div class="storage">
+            <p class="header"><b><font size="5">Projects</font></b></p>
+        </div>
+
+        <div class="container">
+
+            <div class="outer">
+                <div class="inner" style="margin-left: 30px">
+                    <p><font size="3"><u>Tools: </u></font></p>
+
+                  <form method="GET" action="/displayTable" display="inline-block">
+                        <button>View Projects</button>
+                    </form>
+
+                    <form method="GET" action="/displayInput">
+                        <button>Add Project</button>
+                    </form>
+
+                    <form method="GET" action="/displayCustom">
+                        <button>View Custom Projects</button>
+                    </form>
+                </div>
+
+                <div class="inner" style="margin-left: 30px" style="display: inline-block">
+                    <p><font size="3"><u>Admin Tools: </u></font></p>
+                    <form method="GET" action="/displayPulldown">
+                        <button>Modify Pulldown</button>
+                    </form>
+
+                    <form method="GET" action="/displayHistory">
+                        <button>Track Version History</button>
+                    </form>
+                </div>
+
+                <br></br>
+
+            </div>
+
+        </div>
+        
+        <br></br>
+
+        <div class="storage">
+            <p class="header"><b><font size="5">Accounts</font></b></p>
+        </div>
+
+
+        <div class="container">
+            <div class="outer">
+
+                <div class="inner" style="margin-left: 30px">
+
+                    <p><font size="3"><u>Tools: </u></font></p>
+
+                    <form method="GET" action="/displayAccount">
+                        <button>View Account</button>
+                    </form>
+
+                    <form method="POST" action="/logout">
+                        <button>Log out</button>
+                    </form>
+
+                    <p><font size="3"><u>Admin Tools: </u></font></p>
+
+                    <form method="GET" action="/viewAccounts">
+                        <button>Edit Accounts</button>
+                    </form>
+                </div>
+
+                <br></br>
+
+            </div>
+
+        </div>
+    </div>
+</body>

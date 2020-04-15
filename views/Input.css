@@ -1,0 +1,99 @@
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background: #0066A1;    
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: auto;
+}
+
+.spacing {
+    background-color: #0066A1;
+    color: white;
+    font-weight: 800;
+    font-size: 24px;
+    margin: 0 12% 0 12%;
+}
+
+.card {
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 12% 50px 12%;
+    padding: 20px 20px 20px 20px;
+    
+}
+
+.topnav {
+    width: 100%;
+    margin: 0 0 0 0;
+    background-color: white;
+    overflow: hidden;
+    display: grid;
+    grid-template: 50px / 42% auto 42%;
+    border-bottom: 1px solid black;
+}
+
+.center {
+    display: grid;
+    grid-template: 50px / auto auto;
+    padding-top: 15px;
+
+}
+
+.left {
+    padding-left: 50px;
+    padding-top: 15px;
+}
+
+.right {
+    padding-right: 50px;
+    padding-top: 15px;
+}
+
+a {
+    color:black;
+    font-weight: 400;
+}
+
+.catagoryprimary {
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+.catagory {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+div.inl {
+    display: inline-block;
+    padding: 5px 20px 5px 0;
+    width: 320px
+}
+
+div.inl2 {
+    display: block;
+    padding: 5px 20px 5px 0;
+    width: 320px
+}
+
+select {
+    width: 240px;
+}
+
+.in {
+    display: block;
+}
+
+input {
+    width: 240px;
+}
+
+.submit {
+    display: grid;
+    grid-template: 27px / auto 69px auto;
+    padding: 10px 0 10px 0;
+}

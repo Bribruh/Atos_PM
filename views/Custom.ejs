@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="Custom.css">
+
+</head>
+
+<div class="topnav">
+    <div class = "left" align="left">
+        <img src="https://atos.net/wp-content/uploads/2019/01/atos-logo-blue.png" alt= "ATOS Logo" style="max-width:100%; max-height:100%;">
+    </div>
+    
+    <div class="center">
+        <form method="GET" action="/displayDashboard" display="inline-block">
+            <input type="submit" value="Home" style= "height: 20px; width: 80px">
+        </form>
+    </div>
+
+    <div class = "right" align="right">
+        <a >Account</a>
+    </div>
+</div>
+
+
+<body>
+
+    <div class="spacing">
+        <p>View Custom Table</p>
+    </div>
+
+    <div class="card">
+        <form method="GET" action="/renderView" display="inline">	
+
+        <div class="inl">
+            <label class="in" for="customView">Please select a custom view: </label>
+                <select id="customView" name="customView">
+
+                    <% for(var a=0; a < myArray.length; a++) { %>
+                     <option value="<%= myArray[a] %>"><%= myArray[a] %></option>
+                    <% } %>
+
+                </select>
+
+                    <input type="submit" value ="Submit" style= "height: 30px; width: 80px"></button>
+        </div>
+
+         </form>
+    </div>
+
+    <script type="text/javascript">
+        var myObj = <%-JSON.stringify(myArray)%>;
+    </script>
+
+</body>
+</html>

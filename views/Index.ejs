@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/ag-grid-enterprise/dist/ag-grid-enterprise.min.noStyle.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="Index.css">
+</head>
+
+<div class="topnav">
+    <div class = "left" align="left">
+        <img src="https://atos.net/wp-content/uploads/2019/01/atos-logo-blue.png" alt= "ATOS Logo" style="max-width:100%; max-height:100%;">
+    </div>
+    
+    <div class="center">
+        <form method="GET" action="/displayDashboard" display="inline-block">
+            <input type="submit" value="Home">
+        </form>
+    </div>
+
+    <div class = "right" align="right">
+        <!--<a >Account</a>-->
+        <form method="POST" action="/account" display="inline">
+            <input type="submit" value="Account" style= "height: 20px; width: 80px"></button>
+        </form>
+    </div>
+</div>
+
+<body>
+    <div class="spacing">
+        <p>Portfolio and Resource Manager</p>
+    </div>
+    <div class="card">   
+        <div class="sep">
+            <div id="displayGrid" style="height: 100%; width: 100%" class="ag-theme-alpine" ondragover="gridDragOver(event)" ondrop="gridDrop(event,'display')"></div>
+
+            <div style="display: flex" >				
+				<form method="GET" action="/view" display="inline">	
+                	<input type="hidden" id="selection3" name="selection3"  />   
+                    <input type="submit" value ="View Value" style= "height: 20px; width: 80px"></button>
+                </form>
+				
+				 <form method="GET" action="/edit" display="inline">	
+                	<input type="hidden" id="selection2" name="selection2"  />   
+                    <input type="submit" value ="Edit Value" style= "height: 20px; width: 80px"></button>
+                </form>
+				
+				<form method="GET" action="/del" display="inline">	
+                	<input type="hidden" id="selection4" name="selection4"  />   
+                    <input type="submit" value ="Delete Value" style= "height: 20px; width: 100px"></button>
+                </form>
+				
+				<form method="GET" action="/vers" display="inline">	
+                	<input type="hidden" id="selection5" name="selection5"  />   
+                    <input type="submit" value ="Value History" style= "height: 20px; width: 100px"></button>
+                </form>
+
+				<div style="display: block">
+					Selection:
+					<span id="selection" ></span>
+				</div>
+            </div>
+                  
+
+            <div id="dropGrid" style ="height: 200px; width: 100%" class="ag-theme-alpine" ondragover="gridDragOver(event)" ondrop="gridDrop(event,'drop')"></div>
+    </div>
+	
+    <script type="text/javascript" charset="utf-8">
+        //Stringify: Converts JavaScript object into a JSON String
+        var myObj = <%-JSON.stringify(myArray)%>;
+
+        //Converts column data into local object
+        var myCol = <%-JSON.stringify(myColumn)%>;
+
+        //Global array to store each nested JSON object from myOBJ
+        var eachProject =[];
+
+        //Global array for each nested JSON container from myObj
+        var projData = [];
+        var projDescrip =[];
+        var cnaInfo =[];
+        var atosInfo =[];
+        var solutionInfo =[];
+        var pmInfo =[];
+        var documentation =[];
+
+        //Parse through JSON String by nested JSON name
+        for (var i =0; i <myObj.length;i++){
+            projData.push(myObj[i].Project_Data);
+            projDescrip.push(myObj[i].Project_Description);
+            cnaInfo.push(myObj[i].CNA_Info);
+            atosInfo.push(myObj[i].ATOS_Assignment);
+            solutionInfo.push(myObj[i].Solution_Design_Info);
+            pmInfo.push(myObj[i].PM_Execution_Info);
+            documentation.push(myObj[i].Documentation);
+        }
+        //Global array to store row-data information
+        var data =[];
+
+        //Stores each JSON object attribute instance into row Data
+        for (var i=0; i <myObj.length; i++){
+            data.push(
+                {APN: projData[i][0].APN, Lifecycle: projData[i][0].Lifecycle, CNA_Ref_Num: projData[i][0].CNA_Ref_Num, Name: projData[i][0].Name, Initiative: projData[i][0].Initiative, CNA_Sub_Portfolio: projData[i][0].CNA_Sub_Portfolio, CNA_Priority: projData[i][0].CNA_Priority, CNA_Request: projData[i][0].CNA_Request, CNA_Country: projData[i][0].CNA_Country, IDemand_Num: projData[i][0].IDemand_Num, Salesforce_Case: projData[i][0].Salesforce_Case, Salesforce_Opportunity: projData[i][0].Salesforce_Opportunity, Created_By: projData[i][0].Created_By, Created_At: projData[i][0].Created_At, Last_Modified_At: projData[i][0].Last_Modified_At, Modified_At: projData[i][0].Modified_At,
+                Description: projDescrip[i][0].Description, Business_Justification: projDescrip[i][0].Business_Justification, CNA_Implement_Date: projDescrip[i][0].CNA_Implement_Date,
+                Requestor_Name: cnaInfo[i][0].Requestor_Name, Sponsor: cnaInfo[i][0].Sponsor, Architect: cnaInfo[i][0].Architect, Project_Manager: cnaInfo[i][0].Project_Manager, Project_Contact: cnaInfo[i][0].Project_Contact,
+                Demand_Owner: atosInfo[i][0].Demand_Owner, Assigned_To: atosInfo[i][0].Assigned_To, Program_Name: atosInfo[i][0].Program_Name, Project_WBS_Code: atosInfo[i][0].Project_WBS_Code, Solution_Architect: atosInfo[i][0].Solution_Architect, SA_Assigned_Date: atosInfo[i][0].SA_Assigned_Date, Project_Manager: atosInfo[i][0].Project_Manager, PM_Assigned_Date: atosInfo[i][0].PM_Assigned_Date,
+                Solution_Architect: solutionInfo[i][0].Solution_Architect, Complexity: solutionInfo[i][0].Complexity, Difficulty: solutionInfo[i][0].Difficulty, Req_RAG_Status: solutionInfo[i][0].Req_RAG_Status, Req_Gathering_Start: solutionInfo[i][0].Req_Gathering_Start, Req_Completion_Date: solutionInfo[i][0].Req_Completion_Date, Req_Sent_Approval: solutionInfo[i][0].Req_Sent_Approval, Req_Sign_Date: solutionInfo[i][0].Req_Sign_Date, SD_RAG_Status: solutionInfo[i][0].SD_RAG_Status, SD_Completion_Date: solutionInfo[i][0].SD_Completion_Date, SD_Sign_Date: solutionInfo[i][0].SD_Sign_Date, Proposal_Version: solutionInfo[i][0].Proposal_Version, SA_Notes: solutionInfo[i][0].SA_Notes, Peer_Reviewed: solutionInfo[i][0].Peer_Reviewed, Peer_Reviewer: solutionInfo[i][0].Peer_Reviewer, Peer_Reviewed_Date: solutionInfo[i][0].Peer_Reviewed_Date,QA_Reviewed: solutionInfo[i][0].QA_Reviewed, QA_Reviewer: solutionInfo[i][0].QA_Reviewer, QA_Reviewed_Date: solutionInfo[i][0].QA_Reviewed_Date, Scope_Changed: solutionInfo[i][0].Scope_Changed, Scope_Change_Date: solutionInfo[i][0].Scope_Change_Date, Scope_Change_Num: solutionInfo[i][0].Scope_Change_Num, Days_Req_Gathering: solutionInfo[i][0].Days_Req_Gathering, Days_Solution_Design: solutionInfo[i][0].Days_Solution_Design, Total_Days_Solutioning: solutionInfo[i][0].Total_Days_Solutioning,
+                ATOS_PM: pmInfo[i][0].ATOS_PM, Execution_Start_Date: pmInfo[i][0].Execution_Start_Date, Execution_Days: pmInfo[i][0].Execution_Days, Planning_End_Date: pmInfo[i][0].Planning_End_Date, Baseline_Project_End_Date: pmInfo[i][0].Baseline_Project_End_Date, Baseline_Date_Change: pmInfo[i][0].Baseline_Date_Change, Project_Percent: pmInfo[i][0].Project_Percent, Project_RAG_Status: pmInfo[i][0].Project_RAG_Status, Scope_RAG: pmInfo[i][0].Scope_RAG, Schedule_RAG: pmInfo[i][0].Schedule_RAG, Budget_RAG: pmInfo[i][0].Budget_RAG, Baseline_Date: pmInfo[i][0].Baseline_Date, Status_Date: pmInfo[i][0].Status_Date, Status_Summary: pmInfo[i][0].Status_Summary, Executive_Summary: pmInfo[i][0].Executive_Summary, Weekly_Highlights: pmInfo[i][0].Weekly_Highlights, Upcoming: pmInfo[i][0].Upcoming,
+                ATOS_PMO_URL: documentation[i][0].ATOS_PMO_URL, Collab_URL: documentation[i][0].Collab_URL, Finance_URL: documentation[i][0].Finance_URL, Notes: documentation[i][0].Notes, History: documentation[i][0].History
+                }
+            );
+        }
+
+	//Makes rows dragable and adds checkbox next to each row
+        myCol.unshift({dndSource: true, checkboxSelection: true, width:75});
+
+        //Uses imported CSV as column definitions
+        var columnDefs = myCol;
+	
+        // Uses globally stored array as row data
+        var rowData = data;
+    
+        //Configuration for main display grid
+        var displayGridOptions = {
+            columnDefs: columnDefs,
+            rowData: rowData,
+            rowSelection: 'single',
+			onSelectionChanged: onSelectionChanged,
+
+            getRowNodeId: function(data){return data.APN},
+            floatingFilter: true,
+            rowDragManaged: true,
+            animateRows: true,
+
+            defaultColDef: {
+                enableRowGroup: true,
+                enableValue: true,
+            },
+
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: 'filters',
+                        labelDefault: 'Search',
+                        labelKey: 'filters',
+                        iconKey: 'filter',
+                        toolPanel: 'agFiltersToolPanel',
+                        toolPanelParams: {
+                            syncLayoutWithGrid: true,
+                        }
+                    },
+                    {
+                        id: 'columns',
+                        labelDefault: 'Columns',
+                        labelKey: 'columns',
+                        iconKey: 'columns',
+                        toolPanel: 'agColumnsToolPanel',
+                        toolPanelParams: {
+                            syncLayoutWithGrid: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressValues: true,
+
+                        }
+                    },
+                ],
+            }
+        };
+
+	//Configurations for drag-and-drop grid
+	var dropGridOptions = {
+            columnDefs: columnDefs,
+            rowData: [],
+
+            getRowNodeId: function(data){return data.APN},
+            animateRows: true,
+
+            defaultColDef: {
+                sortable: true,
+            },
+
+            sideBar: {
+                toolPanels:[
+                    {
+                    id: 'columns',
+                    labelDefault: 'Columns',
+                    labelKey: 'columns',
+                    iconKey: 'columns',
+                    toolPanel: 'agColumnsToolPanel',
+                        toolPanelParams: {
+                          suppressRowGroups: true,
+                          suppressValues: true,
+                          suppressPivots: true,
+                          suppressPivotMode: true,
+                          suppressSideButtons: true,
+                          suppressColumnFilter: true,
+                          suppressColumnSelectAll: true,
+                          suppressColumnExpandAll: true,
+                        },
+                    },
+                ],
+            },
+        };
+
+		function onSelectionChanged() {
+			var selectedRows = displayGridOptions.api.getSelectedRows();
+			document.querySelector('#selection2').value = selectedRows.length === 1 ? selectedRows[0].APN : '';
+			document.querySelector('#selection3').value = selectedRows.length === 1 ? selectedRows[0].APN : '';
+			document.querySelector('#selection4').value = selectedRows.length === 1 ? selectedRows[0].APN : '';
+			document.querySelector('#selection5').value = selectedRows.length === 1 ? selectedRows[0].APN : '';
+			document.querySelector('#selection').innerHTML = selectedRows.length === 1 ? selectedRows[0].APN : '';
+		}
+		
+        //Utility function for column search bar
+        function myComparator (filter, value, filterText) {
+
+            var filterTextLoweCase = filterText.toLowerCase();
+            var valueLowerCase = value.toString().toLowerCase();
+
+            switch (filter) {
+                case 'contains':
+                    return valueLowerCase.indexOf(filterTextLoweCase) >= 0;
+                case 'notContains':
+                    return valueLowerCase.indexOf(filterTextLoweCase) === -1;
+                case 'equals':
+                    return valueLowerCase === filterTextLoweCase;
+                case 'notEqual':
+                    return valueLowerCase != filterTextLoweCase;
+                case 'startsWith':
+                    return valueLowerCase.indexOf(filterTextLoweCase) === 0;
+                case 'endsWith':
+                    var index = valueLowerCase.lastIndexOf(filterTextLoweCase);
+                    return index >= 0 && index === (valueLowerCase.length - filterTextLoweCase.length);
+                default:
+                    // should never happen
+                    console.warn('invalid filter type ' + filter);
+                    return false;
+            }
+        }
+
+        //Utility function to copy selected cell data when dragged
+        function gridDragOver(event) {
+            var dragSupported = event.dataTransfer.types.length;
+
+            if (dragSupported) {
+                event.dataTransfer.dropEffect = "copy";
+                event.preventDefault();
+            }
+
+        }
+
+        //Utility function to populate grid when cell data dropped
+        function gridDrop(event, grid) {
+            event.preventDefault();
+
+            var userAgent = window.navigator.userAgent;
+            var isIE = userAgent.indexOf('Trident/') >= 0;
+
+            var jsonData = event.dataTransfer.getData(isIE ? 'text' : 'application/json');
+            var data = JSON.parse(jsonData);
+
+            // if data missing or data has no it, do nothing
+            if (!data || data.APN == null) { return; }
+
+            var gridApi = grid == 'display' ? displayGridOptions.api : dropGridOptions.api;
+
+            // do nothing if row is already in the grid, otherwise we would have duplicates
+            var rowAlreadyInGrid = !!gridApi.getRowNode(data.APN);
+            if (rowAlreadyInGrid) {
+                console.log('not adding row to avoid duplicates in the grid');
+                return;
+            }
+
+            var transaction = {
+                add: [data]
+            };
+            gridApi.updateRowData(transaction);
+        }
+        
+        //Setup the grid after page has finished listening
+        document.addEventListener('DOMContentLoaded', function() {
+            var eGridDiv = document.querySelector('#displayGrid');
+            new agGrid.Grid(eGridDiv, displayGridOptions);
+
+            var dropGridDiv = document.querySelector('#dropGrid');
+            new agGrid.Grid(dropGridDiv, dropGridOptions);
+        });
+    </script>
+</body>
+</html>

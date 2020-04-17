@@ -130,7 +130,7 @@ function renderDisplayH(response){
 		}
 		console.log(myProjects);
 		//Passes data values from Mongo over to EJS file to be rendered
-		response.render('History', {myArray: myProjects, myColumn: resultsR});	
+		response.render('History', {myArray: myProjects, myColumn: results});	
 	});
 }
 
@@ -454,7 +454,7 @@ app.get("/input", function (request, response){
 		}
 		myAPN = '' + num;
 		//Append 0s
-		while (myAPN.length < 6) {
+		while (myAPN.length < 10) {
 			myAPN = '0' + myAPN;
 		}
 		//Parse User input into Project schema for DB

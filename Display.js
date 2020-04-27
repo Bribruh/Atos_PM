@@ -110,8 +110,8 @@ function renderDisplayR(response,APN){
 		for (var i = 0; i < p.length; i++){
 			//Stores every data point into myArray
 			myProjects.push(p[i]);
+			console.log(p[i]);
 		}
-		console.log(myProjects);
 		//Passes data values from Mongo over to EJS file to be rendered
 		response.render('Index-R', {myArray: myProjects, myColumn: resultsR});	
 	});

@@ -1,0 +1,16 @@
+EJS Pages:
+- Account: Rendered HTML page to display stored account information
+- AccountDisplay: Rendered HTML page with Ag-Grid and stored Account values
+- Custom: Rendered HTML page to select custom-view to be rendered onto Index
+- Dashboard: Rendered HTML page that acts as homepage and has all other pages routed
+- History: Rendered HTML page with Ag-Grid and all stored Project history
+- Index-R: List of all previous versions of selected project
+- Index: Rendered HTML page with Ag-Grid and stored Project values
+- Input: Rendered HTML page to store User Input and insert into MongoDB
+- Login: Rendered HTML log-in screen
+- Modify: Rendered HTML page to display Project value, read user input, and re-insert into MongoDB
+- ModifyAccount: Rendered HTML page to display Account value, read user input, and re-insert into MongoDB
+- Pulldown: Rendered HTML page to handle pulldown option modification
+- Register: Rendered HTML page to read user-input and store Account details into MongoDB
+- View-R: View selected version of project from HistoryDB
+- View: View current active project in DB

@@ -199,12 +199,24 @@ app.get('/displayCustom', function (req, res) {
 
 //Displays pulldown modifier page
 app.get('/displayPulldown', function (req, res) {
-	res.render('Pulldown', { myArray: myOptions, myVal: [], mySelectedCSV: "" });
+	if (isAdmin(req)) {
+		res.render('Pulldown', { myArray: myOptions, myVal: [], mySelectedCSV: "" });
+	}
+	else {
+		//do nothing
+		res.render('Dashboard')
+	}
 });
 
 //Displays Version History page
 app.get('/displayHistory', function (req, res) {
-	renderDisplayH(res);
+	if (isAdmin(req)) {
+		renderDisplayH(res);
+	}
+	else {
+		//do nothing
+		res.render('Dashboard')
+	}
 });
 
 //Displays Project Input page
@@ -486,6 +498,13 @@ app.get("/input", function (request, response){
 
 //////////////// Account functions //////////////////////////////////////
 
+function isAdmin(req) {
+	if (req.session.user.role == 'admin')
+		return true
+	else
+		return false
+}
+
 // Display register screen
 app.get('/displayRegister', (req, res) => {
 	res.render('Register')
@@ -535,6 +554,7 @@ app.post('/register', (req, res) => {
 			res.send('error detected - check console for details')
 		})
 })
+
 // Login screen, validates username/password against db
 app.post('/login', (req, res) => {
 	Account.findOne({
@@ -583,16 +603,22 @@ app.post('/logout', (req, res) => {
 
 // View accounts and decide what to edit
 app.get('/viewAccounts', (req, res) => {
-	// Get all users in database
-	Account.find({}, (err, a) => {
-		if (err) handleError(err)
-		users = []
-		for (var i = 0; i < a.length; i++) {
-			users.push(a[i])
-		}
-		// Pass user list to display screen
-		res.render('AccountDisplay', { myusers: users })
-	})
+	if (isAdmin(req)) {
+		// Get all users in database
+		Account.find({}, (err, a) => {
+			if (err) handleError(err)
+			users = []
+			for (var i = 0; i < a.length; i++) {
+				users.push(a[i])
+			}
+			// Pass user list to display screen
+			res.render('AccountDisplay', { myusers: users })
+		})
+	}
+	else {
+		//do nothing
+		res.render('Dashboard')
+	}
 })
 
 // Display account edit screen
@@ -617,7 +643,7 @@ app.post('/submitAccountEdit', (req, res) => {
 		console.log('Changed ' + newUser.username + ' role to ' + newRole)
 		// If current user is edited user, update session
 		if (newUser.username == req.session.user.username)
-			req.session.user.role = newRole
+			req.session.user.role = newRole.toLowerCase()
 		console.log(req.session.user)
 		// Return user to accounts screen
 		Account.find({}, (err2, a) => {

@@ -48,13 +48,13 @@ var ProjectC = projConn.model(colC,pC,colC);
 //Account collection Names
 
     //For GCP and Brian Local
-    //var acol = '';
+    var acol = 'Account'
 
     //For Andy Local
     //var acol = '';
 
     //For Seth Local
-    var acol = 'Account'
+    //var acol = 'Account'
 
 //Customized schema used for storing Account Resources
 

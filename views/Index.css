@@ -78,3 +78,8 @@ a {
     display: grid;
     grid-template-rows: 700px 65px;
   }
+
+  .ag-body-viewport {
+      overflow-y: scroll !important;
+      overflow-x: scroll !important;
+  }

@@ -27,6 +27,10 @@
         Create Account:
         <span id="project"></span>
     </div>
+	<div class="spacing2">
+		<span id="error" ></span>
+	</div>
+
     <div class="card">
         <form class="inl" method="POST" action="/register">
 
@@ -71,6 +75,11 @@
 
         </form>
     </div>
+
+<script type="text/javascript" charset="utf-8">
+document.querySelector('#error').innerHTML = <%-JSON.stringify(er)%>;
+
+    </script>
 
 </body>
 </html>

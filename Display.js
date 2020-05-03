@@ -510,6 +510,8 @@ app.get('/displayRegister', (req, res) => {
 	res.render('Register')
 })
 
+var strongRegex = new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+
 // Register screen, creates new account from html body
 app.post('/register', (req, res) => {
 	// If user doesn't already exist, encrypt pswd and put in db
@@ -519,34 +521,41 @@ app.post('/register', (req, res) => {
 		.then(user => {
 			// If username hasn't been taken
 			if (!user) {
-				// create new account
-				var newAct = new Account({
-					username: req.body.usernamereg,
-					password: req.body.passwordreg,
-					firstName: req.body.firstName,
-					lastName: req.body.lastName,
-					email: req.body.email,
-					role: req.body.role,
-					company: req.body.company,
-					date: new Date()
-				})
-				bcrypt.hash(req.body.passwordreg, 10, (err, hash) => {
-					if (err) return console.error(err)
-					newAct.password = hash
-					newAct.save(err => {
-						if (err) return console.error(err)
-						console.log('User ' + newAct.username + ' successfully registered!')
+				// If password is valid
+				if (strongRegex.test(req.body.passwordreg) ) {
+					// create new account
+					var newAct = new Account({
+						username: req.body.usernamereg,
+						password: req.body.passwordreg,
+						firstName: req.body.firstName,
+						lastName: req.body.lastName,
+						email: req.body.email,
+						role: req.body.role,
+						company: req.body.company,
+						date: new Date()
 					})
-				})
-				// Store user account in session
-				req.session.user = newAct
-				res.render('Dashboard')
-				/*var projects = ProjData.projects
-				var columns = ProjData.columns
-				res.render('Index', { myArray: projects, myColumn: columns })*/
-				// Username already exists
+					bcrypt.hash(req.body.passwordreg, 10, (err, hash) => {
+						if (err) return console.error(err)
+						newAct.password = hash
+						newAct.save(err => {
+							if (err) return console.error(err)
+							console.log('User ' + newAct.username + ' successfully registered!')
+						})
+					})
+					// Store user account in session
+					req.session.user = newAct
+					res.render('Dashboard')
+					/*var projects = ProjData.projects
+					var columns = ProjData.columns
+					res.render('Index', { myArray: projects, myColumn: columns })*/
+					// Username already exists
+				} else {
+					er = "Error: Password must contain 1 lowercae and 1 uppercae letter, 1 numeric character, 1 special character and be at least 8 characters long";
+					res.render('RegisterE', {er});
+				}
 			} else {
-				res.json({ error: 'User ' + req.body.usernamereg + ' already exists.' })
+				er = "Error: User " + req.body.usernamereg + " already exists";
+				res.render('RegisterE', {er});
 			}
 		})
 		.catch(err => {

@@ -17,8 +17,6 @@ body {
     border-bottom: 1px solid black;
 }
 .center {
-    display: grid;
-    grid-template: 50px / auto auto;
     padding-top: 15px;
 
 }
@@ -82,3 +80,24 @@ a {
       overflow-y: scroll !important;
       overflow-x: scroll !important;
   }
+
+  /*button styling cuz why not?*/
+button {
+    background-color: #0066A1;
+    color: white;
+    border: none;
+    height: 32px; 
+    cursor: pointer;
+    padding: 0 20px 0 20px;
+    margin: 5px 5px 5px 5px;
+}
+button:active {
+    background-color: #06486E;
+    color: white;
+}
+button:focus {
+    outline: none;
+}
+
+
+

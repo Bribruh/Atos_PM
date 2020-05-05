@@ -68,8 +68,6 @@ body {
 }
 
 .center {
-    display: grid;
-    grid-template: 50px / auto auto;
     padding-top: 15px;
 
 }
@@ -95,27 +93,27 @@ form{
 
 /*button styling cuz why not?*/
 button {
-    border: 1px solid black;
     background-color: #0066A1;
     color: white;
-    border-radius: 7px;
-    width: auto;
-    height: 27px; 
+    border: none;
+
+    height: 32px; 
     cursor: pointer;
-
-
+    padding: 0 20px 0 20px;
+    margin: 5px 5px 5px 5px;
 }
 button:active {
-    border: 1px solid #0066A1;
-    background-color: white;
-    color: #0066A1;
+    background-color: #06486E;
+    color: white;
 }
 button:focus {
     outline: none;
-    border: 1px solid #0066A1;
-    background-color: white;
-    color: #0066A1;
 }
+
+
+
+
+
 
 
 

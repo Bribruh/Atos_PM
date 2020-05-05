@@ -17,10 +17,7 @@ body {
     border-bottom: 1px solid black;
 }
 .center {
-    display: grid;
-    grid-template: 50px / auto auto;
     padding-top: 15px;
-
 }
 .left {
     padding-left: 50px;
@@ -77,3 +74,25 @@ a {
     display: grid;
     grid-template-rows: 700px 65px;
   }
+
+  /*button styling cuz why not?*/
+button {
+    background-color: #0066A1;
+    color: white;
+    border: none;
+
+    height: 32px; 
+    cursor: pointer;
+    padding: 0 20px 0 20px;
+    margin: 5px 5px 5px 5px;
+}
+button:active {
+    background-color: #06486E;
+    color: white;
+}
+button:focus {
+    outline: none;
+}
+
+
+

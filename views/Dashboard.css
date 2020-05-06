@@ -22,20 +22,17 @@ body {
     background-color: white;
     margin: 0 12% 50px 12%;
     padding: 20px 20px 20px 20px;
-    width: 60%;
+    width: auto;
 }
 
 .outer {
     border-radius: 10px;
     padding: 3px;
-    background-color: #D3D3D3;
     width: 90%;
-    border:1px solid black;
 }
 
 .container {
     border-radius: 0px 0px 25px 25px;
-    border: 2px solid black;
     padding-bottom:20px;
     padding-right: 20px;
     padding-left: 20px;
@@ -45,9 +42,8 @@ body {
 
 .storage {
     border-radius: 25px 25px 0px 0px;
-    border: 2px solid black;
-    width: 650px;
-    background-color: #D3D3D3;
+    border-bottom: 2px solid #00AFD8;
+    width: auto;
     padding-right: 20px;
     padding-left: 20px;
 }

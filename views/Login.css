@@ -111,7 +111,7 @@ a {
     font-size: 14px;
 }
 
-.login-form button {
+/* .login-form button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
@@ -124,15 +124,17 @@ a {
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
-}
+} */
 
 /*button styling cuz why not?*/
 button {
     background-color: #0066A1;
     color: white;
     border: none;
-
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
     height: 32px; 
+    width: 100%;
     cursor: pointer;
     padding: 0 20px 0 20px;
     margin: 5px 5px 5px 5px;
@@ -144,6 +146,5 @@ button:active {
 button:focus {
     outline: none;
 }
-
 
 

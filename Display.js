@@ -429,7 +429,7 @@ app.get("/modify", function (request, response){
 	var myAPN = request.query.APN;
 	//Assign APN value from ejs to APN of parsed project
 	updatedP.Project_Data[0].APN = myAPN;
-	
+	updatedP.Project_Data[0].Last_Modified_At = request.session.user.username;
 	//Assign APN value from ejs to APN of parsed project
 	tVer = parseInt(request.query.Version);
 	console.log(tVer);
@@ -473,6 +473,10 @@ app.get("/input", function (request, response){
 		var updatedP = parseHTML(request);
 		//Assign APN value to APN of parsed project
 		updatedP.Project_Data[0].APN = myAPN;
+		
+		updatedP.Project_Data[0].Created_By = request.session.user.username;
+		updatedP.Project_Data[0].Last_Modified_At = request.session.user.username;
+		
 		//Save new Project to DB collection
 		updatedP.V = 0;
 		//Save new Project to DB collection

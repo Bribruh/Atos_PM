@@ -22,11 +22,7 @@ Project.deleteMany({}, function (err) {
 	 ProjectC.deleteMany({}, function (err) {
 			if (err) return handleError(err);
 			console.log("Project Resource Colllection Reset");
-			Account.deleteMany({}, function (err) {
-			  if (err) return handleError(err);
-			  console.log("Account Colllection Reset");
-			  process.exit(-1);
-			});
+			process.exit(-1);
 			
 		});
 

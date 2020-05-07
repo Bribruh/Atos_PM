@@ -94,6 +94,7 @@ function renderDisplay(response){
 		for (var i = 0; i < p.length; i++){
 			//Stores every data point into myArray
 			myProjects.push(p[i]);
+			console.log(p[i]);
 		}
 		//Passes data values from Mongo over to EJS file to be rendered
 		response.render('Index', {myArray: myProjects, myColumn: results});	
@@ -186,6 +187,7 @@ app.get('/displayTable', function (req, res) {
 		for (var i = 0; i < p.length; i++) {
 			//Stores every data point into myArray
 			myProjects.push(p[i]);
+			console.log(p[i]);
 		}
 		//Passes data values from Mongo over to EJS file to be rendered
 		res.render('Index', { myArray: myProjects, myColumn: results });
@@ -287,7 +289,7 @@ app.get("/edit", function (request, response){
 	//Retreive selected project data from Database
 	Project.findOne({'Project_Data.APN' : sel}, function (err, p) {
 		if (err) return handleError(err);
-		console.log(p.__v);
+		console.log(p);
 		//Render Modify.ejs and pass selected project data
 		response.render('Modify', {p});
 	}); 
@@ -333,7 +335,7 @@ app.get("/renderView", function (request, response) {
 		for (var i = 0; i < p.length; i++) {
 			//Stores every data point into myArray
 			myProjects.push(p[i]);
-			//console.log(myProjects[i]);
+			console.log(myProjects[i]);
 		}
 
 		response.render('Index', { myArray: myProjects, myColumn: myData });

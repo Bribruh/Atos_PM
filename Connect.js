@@ -6,10 +6,10 @@ var argv = require('optimist').argv;
 //Specified route(s) to access MongoDB for projects on VM
 
     //For GCP
-    //var projConn = mongoose.createConnection('mongodb://' + argv.be_ip + ':80/AtosDB')
+    var projConn = mongoose.createConnection('mongodb://' + argv.be_ip + ':80/AtosDB')
 
     //For Brian Local
-    var projConn = mongoose.createConnection('mongodb://localhost:80/AtosDB')
+    //var projConn = mongoose.createConnection('mongodb://localhost:80/AtosDB')
 
     //For Andy Local
     //var projConn = mongoose.createConnection('mongodb://localhost:27017/ProjectDB');
